@@ -1,0 +1,176 @@
+============================================================
+BATCH PROCESSING CONFIGURATION
+============================================================
+Buffer distance: 1.0m
+Grid size: 0.5m
+Output naming: *_scans_optimized_1m.las
+============================================================
+
+Found 12 plots to process:
+  - ska-ls-H203
+  - ska-ls-h201
+  - ska-ls-h202
+  - ska-ls-h302
+  - ska-ls-h401
+  - ska-ls-h402
+  - ska-ls-h501
+  - ska-ls-h502
+  - ska-ls-h503
+  - ska-ls-l201
+  - ska-ls-l202
+  - ska-ls-l301
+
+============================================================
+Processing 1/12: ska-ls-H203 (1m buffer)
+============================================================
+
+📝 Step 1: Converting PCD to LAS...
+❌ Conversion failed: Traceback (most recent call last):
+  File "/home/pun/Desktop/notebooks_density/dataset_creation/scripts/python/python/tools/convert_pcd_to_las.py", line 2, in <module>
+    import open3d as o3d
+ModuleNotFoundError: No module named 'open3d'
+
+============================================================
+Processing 2/12: ska-ls-h201 (1m buffer)
+============================================================
+
+📝 Step 1: Converting PCD to LAS...
+❌ Conversion failed: Traceback (most recent call last):
+  File "/home/pun/Desktop/notebooks_density/dataset_creation/scripts/python/python/tools/convert_pcd_to_las.py", line 2, in <module>
+    import open3d as o3d
+ModuleNotFoundError: No module named 'open3d'
+
+============================================================
+Processing 3/12: ska-ls-h202 (1m buffer)
+============================================================
+
+📝 Step 1: Converting PCD to LAS...
+❌ Conversion failed: Traceback (most recent call last):
+  File "/home/pun/Desktop/notebooks_density/dataset_creation/scripts/python/python/tools/convert_pcd_to_las.py", line 2, in <module>
+    import open3d as o3d
+ModuleNotFoundError: No module named 'open3d'
+
+============================================================
+Processing 4/12: ska-ls-h302 (1m buffer)
+============================================================
+
+📝 Step 1: Converting PCD to LAS...
+❌ Conversion failed: Traceback (most recent call last):
+  File "/home/pun/Desktop/notebooks_density/dataset_creation/scripts/python/python/tools/convert_pcd_to_las.py", line 2, in <module>
+    import open3d as o3d
+ModuleNotFoundError: No module named 'open3d'
+
+============================================================
+Processing 5/12: ska-ls-h401 (1m buffer)
+============================================================
+
+📝 Step 1: Converting PCD to LAS...
+❌ Conversion failed: Traceback (most recent call last):
+  File "/home/pun/Desktop/notebooks_density/dataset_creation/scripts/python/python/tools/convert_pcd_to_las.py", line 2, in <module>
+    import open3d as o3d
+ModuleNotFoundError: No module named 'open3d'
+
+============================================================
+Processing 6/12: ska-ls-h402 (1m buffer)
+============================================================
+
+📝 Step 1: Converting PCD to LAS...
+❌ Conversion failed: Traceback (most recent call last):
+  File "/home/pun/Desktop/notebooks_density/dataset_creation/scripts/python/python/tools/convert_pcd_to_las.py", line 2, in <module>
+    import open3d as o3d
+ModuleNotFoundError: No module named 'open3d'
+
+============================================================
+Processing 7/12: ska-ls-h501 (1m buffer)
+============================================================
+
+📝 Step 1: Converting PCD to LAS...
+❌ Conversion failed: Traceback (most recent call last):
+  File "/home/pun/Desktop/notebooks_density/dataset_creation/scripts/python/python/tools/convert_pcd_to_las.py", line 2, in <module>
+    import open3d as o3d
+ModuleNotFoundError: No module named 'open3d'
+
+============================================================
+Processing 8/12: ska-ls-h502 (1m buffer)
+============================================================
+
+📝 Step 1: Converting PCD to LAS...
+❌ Conversion failed: Traceback (most recent call last):
+  File "/home/pun/Desktop/notebooks_density/dataset_creation/scripts/python/python/tools/convert_pcd_to_las.py", line 2, in <module>
+    import open3d as o3d
+ModuleNotFoundError: No module named 'open3d'
+
+============================================================
+Processing 9/12: ska-ls-h503 (1m buffer)
+============================================================
+
+📝 Step 1: Converting PCD to LAS...
+❌ Conversion failed: Traceback (most recent call last):
+  File "/home/pun/Desktop/notebooks_density/dataset_creation/scripts/python/python/tools/convert_pcd_to_las.py", line 2, in <module>
+    import open3d as o3d
+ModuleNotFoundError: No module named 'open3d'
+
+============================================================
+Processing 10/12: ska-ls-l201 (1m buffer)
+============================================================
+
+📝 Step 1: Converting PCD to LAS...
+❌ Conversion failed: Traceback (most recent call last):
+  File "/home/pun/Desktop/notebooks_density/dataset_creation/scripts/python/python/tools/convert_pcd_to_las.py", line 2, in <module>
+    import open3d as o3d
+ModuleNotFoundError: No module named 'open3d'
+
+============================================================
+Processing 11/12: ska-ls-l202 (1m buffer)
+============================================================
+
+📝 Step 1: Converting PCD to LAS...
+❌ Conversion failed: Traceback (most recent call last):
+  File "/home/pun/Desktop/notebooks_density/dataset_creation/scripts/python/python/tools/convert_pcd_to_las.py", line 2, in <module>
+    import open3d as o3d
+ModuleNotFoundError: No module named 'open3d'
+
+============================================================
+Processing 12/12: ska-ls-l301 (1m buffer)
+============================================================
+
+📝 Step 1: Converting PCD to LAS...
+❌ Conversion failed: Traceback (most recent call last):
+  File "/home/pun/Desktop/notebooks_density/dataset_creation/scripts/python/python/tools/convert_pcd_to_las.py", line 2, in <module>
+    import open3d as o3d
+ModuleNotFoundError: No module named 'open3d'
+
+
+============================================================
+PROCESSING COMPLETE
+============================================================
+Output directory: /home/pun/Desktop/notebooks_density/processed
+Buffer used: 1.0m
+
+Processed files (rotated versions only):
+
+Total: 0 files (0.0 MB)
+Note: Non-rotated versions were removed to save disk space
+	Command being timed: "python3 batch_process_plots.py --buffer 1.0 --grid-size 0.5"
+	User time (seconds): 0.34
+	System time (seconds): 0.13
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.48
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 13568
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 19382
+	Voluntary context switches: 61
+	Involuntary context switches: 74
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

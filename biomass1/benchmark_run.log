@@ -1,0 +1,35 @@
+========================================================================
+BATCH PROCESS PLOTS - SIMPLE PERFORMANCE TEST
+========================================================================
+
+System Information:
+  CPU Cores (Physical): 32
+  Total Memory: 31Gi
+  Available Memory: 15Gi
+
+========================================================================
+Test 1: Single thread (OMP_NUM_THREADS=1)
+========================================================================
+Starting batch processing...
+Test 1 completed. Output saved to test1_output.txt
+
+========================================================================
+Test 2: Two threads (OMP_NUM_THREADS=2)
+========================================================================
+Starting batch processing...
+Test 2 completed. Output saved to test2_output.txt
+
+========================================================================
+Test 3: Four threads (OMP_NUM_THREADS=4)
+========================================================================
+Starting batch processing...
+Test 3 completed. Output saved to test3_output.txt
+
+========================================================================
+All tests completed!
+========================================================================
+
+Performance Summary:
+Test 1 (1 thread): See test1_output.txt
+Test 2 (2 threads): See test2_output.txt
+Test 3 (4 threads): See test3_output.txt
