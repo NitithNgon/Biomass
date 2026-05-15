@@ -1,0 +1,13 @@
+@startuml
+title LiDAR DBH Estimation Pipeline
+
+start
+:Point cloud;
+:Feature raster;
+:CNN/YOLO;
+:Tree crop;
+:DBH fitting;
+:Evaluation;
+stop
+
+@enduml
