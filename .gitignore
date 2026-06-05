@@ -4,3 +4,8 @@ runs/
 __pycache__/
 *.py[cod]
 biomass2/dataset_creation/yolov11/
+
+# Claude Code / local tooling
+CLAUDE.md
+ruff.toml
+.claude/
