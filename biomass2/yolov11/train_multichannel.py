@@ -25,10 +25,12 @@ def default_model_path() -> str:
 def build_arg_parser() -> argparse.ArgumentParser:
     script_dir = Path(__file__).resolve().parent
     default_data = script_dir.parent / "dataset_creation" / "yolov11" / "dataset_multichannel" / "data.yaml"
+    default_project = script_dir / "runs" / "detect"
 
     parser = argparse.ArgumentParser(description="Train YOLOv11 on biomass2 multi-channel LiDAR images.")
     parser.add_argument("--data", type=str, default=str(default_data), help="Path to data.yaml")
     parser.add_argument("--model", type=str, default=default_model_path(), help="YOLO model/weights path")
+    parser.add_argument("--project", type=str, default=str(default_project), help="Output project directory")
     parser.add_argument("--epochs", type=int, default=100)
     parser.add_argument("--imgsz", type=int, default=320)
     parser.add_argument("--batch", type=int, default=8)
@@ -36,6 +38,8 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--name", type=str, default="rubber_multichannel_density_hag_dbh")
     parser.add_argument("--patience", type=int, default=30)
+    parser.add_argument("--exist_ok", action="store_true", help="Reuse the run folder if it already exists")
+    parser.add_argument("--resume", action="store_true", help="Resume training from the checkpoint in --model")
     return parser
 
 
@@ -48,7 +52,10 @@ def main() -> None:
         "epochs": args.epochs,
         "imgsz": args.imgsz,
         "batch": args.batch,
+        "project": args.project,
         "name": args.name,
+        "exist_ok": args.exist_ok,
+        "resume": args.resume,
         "patience": args.patience,
         "degrees": 15.0,
         "translate": 0.05,
@@ -85,6 +92,7 @@ def main() -> None:
 
     print("\nTraining complete")
     print(f"Run name: {args.name}")
+    print(f"Project: {args.project}")
     print(f"Data: {args.data}")
 
 

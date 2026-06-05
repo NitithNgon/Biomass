@@ -173,6 +173,35 @@ class YOLOMultiChannelDatasetGenerator:
             "test": pairs[n_train + n_val :],
         }
 
+    @staticmethod
+    def split_dataset_from_existing_yolo(
+        plot_pairs: Sequence[Tuple[Path, Path]],
+        existing_dataset_dir: Path,
+    ) -> Dict[str, List[Tuple[Path, Path]]]:
+        """Reuse train/val/test membership from an existing YOLO dataset."""
+        pair_by_plot = {_plot_name_from_las(las_path).lower(): (las_path, csv_path) for las_path, csv_path in plot_pairs}
+        splits: Dict[str, List[Tuple[Path, Path]]] = {"train": [], "val": [], "test": []}
+        used_plots = set()
+
+        for split_name in splits:
+            image_dir = existing_dataset_dir / "images" / split_name
+            if not image_dir.exists():
+                raise FileNotFoundError(f"Missing split image directory: {image_dir}")
+
+            for image_path in sorted(image_dir.glob("*.*")):
+                plot_name = _plot_name_from_las(image_path).lower()
+                if plot_name not in pair_by_plot:
+                    print(f"  Skip split item without LAS/CSV pair: {image_path.name}")
+                    continue
+                splits[split_name].append(pair_by_plot[plot_name])
+                used_plots.add(plot_name)
+
+        missing = sorted(set(pair_by_plot) - used_plots)
+        if missing:
+            print(f"Warning: {len(missing)} LAS/CSV pairs not present in existing split: {', '.join(missing)}")
+
+        return splits
+
     def create_data_yaml(self, output_dir: Path) -> Path:
         yaml_path = output_dir / "data.yaml"
         yaml_content = f"""# YOLO Dataset Configuration
@@ -266,6 +295,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--val_ratio", type=float, default=0.15)
     parser.add_argument("--test_ratio", type=float, default=0.15)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument(
+        "--split_from_dataset",
+        type=str,
+        default=None,
+        help="Existing YOLO dataset directory whose images/train|val|test split should be reused",
+    )
     parser.add_argument("--overwrite", action="store_true", help="Overwrite existing dataset")
     return parser
 
@@ -302,7 +337,10 @@ def main() -> None:
         channel_order=args.channels,
     )
 
-    splits = generator.split_dataset(plot_pairs, seed=args.seed)
+    if args.split_from_dataset:
+        splits = generator.split_dataset_from_existing_yolo(plot_pairs, Path(args.split_from_dataset))
+    else:
+        splits = generator.split_dataset(plot_pairs, seed=args.seed)
     for split_name, pairs in splits.items():
         print(f"{split_name}: {len(pairs)} plots")
 

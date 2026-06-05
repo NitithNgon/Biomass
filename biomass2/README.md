@@ -62,6 +62,29 @@ python biomass2/dataset_creation/create_yolo_multichannel_dataset.py \
   --overwrite
 ```
 
+ถ้าต้องการเทียบกับ density baseline เดิมแบบใช้ train/val/test split ชุดเดียวกัน:
+
+```bash
+python biomass2/dataset_creation/create_yolo_multichannel_dataset.py \
+  --plots_dir biomass1/notebooks_density/processed \
+  --csv_dir biomass1/dataset/ข้อมูลแปลง \
+  --output_dir biomass2/dataset_creation/yolov11/dataset_multichannel \
+  --use_rotated \
+  --split_from_dataset biomass1/notebooks_density/dataset_creation/yolov11/dataset \
+  --overwrite
+
+python biomass2/dataset_creation/create_yolo_multichannel_dataset.py \
+  --plots_dir "biomass1/notebooks_density/processed" \
+  --csv_dir "biomass1/dataset/ข้อมูลแปลง" \
+  --output_dir "biomass2/dataset_creation/yolov11/dataset_multichannel" \
+  --use_rotated \
+  --split_from_dataset "biomass1/notebooks_density/dataset_creation/yolov11/dataset" \
+  --image_size 320 \
+  --pixel_size 0.125 \
+  --box_size 2.0 \
+  --overwrite \
+```
+
 ## Train
 
 ```bash
@@ -70,7 +93,14 @@ python biomass2/yolov11/train_multichannel.py \
   --epochs 100 \
   --imgsz 320 \
   --batch 8 \
-  --device 0
+  --device 0 \
+  --name "multichannel_density_hag_dbh"
 ```
 
-ถ้าจะเทียบกับ `biomass1` ให้ใช้ split seed, image size, box size, epochs และ augmentation ให้เหมือนกัน แล้วเปรียบเทียบ mAP, precision, recall และผลตำแหน่งต้นที่ตรวจเจอใน validation/test set เดียวกัน
+ผลลัพธ์จะอยู่ที่:
+
+```text
+biomass2/yolov11/runs/detect/multichannel_density_hag_dbh/
+```
+
+ถ้าจะเทียบกับ `biomass1` ให้ใช้ split เดียวกัน, image size, box size, epochs และ augmentation ให้เหมือนกัน แล้วเปรียบเทียบ mAP, precision, recall และผลตำแหน่งต้นที่ตรวจเจอใน validation/test set เดียวกัน
