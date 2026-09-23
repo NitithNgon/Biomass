@@ -4,8 +4,12 @@ runs/
 __pycache__/
 *.py[cod]
 biomass2/dataset_creation/yolov11/
+biomass3/dataset_creation/yolov11/
+biomass3/dataset_creation/cache/
 
 # Claude Code / local tooling
 CLAUDE.md
 ruff.toml
 .claude/
+!biomass3/*
+yolov11_model/
